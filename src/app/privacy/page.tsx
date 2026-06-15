@@ -1,16 +1,7 @@
-import Navbar from "../../components/layouts/Navbar";
-import Footer from "../../components/layouts/Footer";
+import React from "react";
 
-export default function Privacy() {
-  return (
-    <>
-      <Navbar session={null} />
+const page = () => {
+  return <div>page</div>;
+};
 
-      <main className="min-h-screen bg-white flex items-center justify-center">
-        <h1 className="text-xl font-semibold text-gray-500">Privacy Page</h1>
-      </main>
-
-      <Footer />
-    </>
-  );
-}
+export default page;
