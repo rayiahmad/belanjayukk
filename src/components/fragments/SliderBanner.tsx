@@ -51,18 +51,21 @@ export default function SliderBanner() {
       >
         {bannerImages.map((image, index) => (
           <SwiperSlide key={index}>
-            <div className="relative w-full h-[653px] sm:h-[400px] group">
+            {/* ✅ FIX RESPONSIVE CONTAINER */}
+            <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] group overflow-hidden rounded-xl">
+              {/* IMAGE */}
               <Image
                 src={image.imageUrl}
                 alt={image.title}
                 fill
-                className="object-cover rounded-lg"
                 priority
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              {/* Shadow overlay & CTA muncul saat hover */}
-              <div className="absolute top-0 left-0 w-full h-full flex items-center justify-start px-8 sm:px-4 bg-black/0 group-hover:bg-black/30 transition-all duration-300">
+
+              {/* OVERLAY + BUTTON */}
+              <div className="absolute inset-0 flex items-center justify-start px-8 sm:px-4 bg-black/0 group-hover:bg-black/30 transition-all duration-300">
                 <Link href="/products">
-                  <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-lg sm:text-sm">
+                  <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg text-sm sm:text-sm">
                     Belanja Sekarang
                   </button>
                 </Link>
@@ -72,10 +75,10 @@ export default function SliderBanner() {
         ))}
       </Swiper>
 
-      {/* Tombol navigasi custom */}
+      {/* NAVIGATION LEFT */}
       <button
         ref={prevRef}
-        className="absolute top-1/2 left-2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md z-50"
+        className="absolute top-1/2 left-2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md z-50"
       >
         <svg
           className="w-4 h-4 text-black"
@@ -92,9 +95,10 @@ export default function SliderBanner() {
         </svg>
       </button>
 
+      {/* NAVIGATION RIGHT */}
       <button
         ref={nextRef}
-        className="absolute top-1/2 right-2 transform -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md z-50"
+        className="absolute top-1/2 right-2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md z-50"
       >
         <svg
           className="w-4 h-4 text-black"
