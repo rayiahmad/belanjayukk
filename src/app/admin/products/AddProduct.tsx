@@ -32,7 +32,7 @@ const AddProduct = ({ kategori }: { kategori: Kategori[] }) => {
     e.preventDefault();
 
     if (!image) {
-      alert("Anda harus mengunggah Foto Mobil.");
+      alert("Anda harus mengunggah Foto Products.");
       return;
     }
 
@@ -55,7 +55,7 @@ const AddProduct = ({ kategori }: { kategori: Kategori[] }) => {
       router.refresh();
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Input tidak boleh kosong.");
+      alert("Deskripsi tidak boleh kosong atau terlalu panjang.");
     }
   };
 
