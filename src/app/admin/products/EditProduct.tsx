@@ -54,7 +54,7 @@ const EditProduct = ({
         image,
         kategoriId,
       });
-      toast.success("Berhasil mengupdate Products🚀");
+      toast.success("Berhasil mengubah Products🚀");
       router.refresh();
     } catch (error) {
       toast.error("Terjadi kesalahan. Silakan coba lagi.");
